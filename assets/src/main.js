@@ -18,6 +18,7 @@ export default class App extends Component {
             <Router>
                 <Provider store={this.store}>
                     <Route path="/" component={require("./App").default}></Route>
+                    <Route path="/login" component={require("./App").default}></Route>
                 </Provider>
             </Router>
         )

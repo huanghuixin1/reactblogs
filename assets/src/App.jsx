@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {Provider, observer} from 'mobx-react'
 import LazyRoute from 'lazy-route'
 import {Match} from 'react-router'
+require("./app.scss");
 
 // import DevTools from 'mobx-react-devtools'
 @observer
@@ -18,7 +19,15 @@ export default class App extends Component {
         let match = this.props.match;
         return (
             <Router>
-                <div>这里是主要内容</div>
+                <article className="index-container">
+                    <header>
+
+                    </header>
+
+                    <footer>
+
+                    </footer>
+                </article>
             </Router>
         )
     }
