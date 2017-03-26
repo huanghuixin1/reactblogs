@@ -1,5 +1,7 @@
 import React from 'react'
 import userState from "../mobx/userState";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Test from "./Test";
 
 class Inputs extends React.Component {
     constructor(props) {
@@ -15,9 +17,13 @@ class Inputs extends React.Component {
     }
 
     render() {
+        let match = this.props.match
+        console.info(this.props, this.state);
         return <div>
             <input type="text" ref="(input)=>{txtName = input; }"/>
             <button onClick={this.changeUserInfo}>点击修改</button>
+
+            <Link to={`${match.url}/test`}>跳转到test</Link>
         </div>;
     }
 }
