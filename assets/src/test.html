@@ -14,3 +14,24 @@
 </select>
 </body>
 </html>
+
+<script>
+    function delayFn(num) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(111 + num);
+            }, 1500);
+        })
+    }
+
+    let final = async function () {
+        let a = await delayFn(10);
+        let b = await delayFn(20);
+
+        return a + b
+    }
+
+    final().then((ret) => {
+        alert(ret)
+    })
+</script>
