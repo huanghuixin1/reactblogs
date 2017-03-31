@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {Provider, observer} from 'mobx-react'
 import LazyRoute from 'lazy-route'
 import {Match} from 'react-router'
-require("./app.scss");
+import './app.scss'
 
 // import DevTools from 'mobx-react-devtools'
 @observer
@@ -12,23 +12,30 @@ export default class App extends Component {
         super(props)
 
         this.store = this.props.store
-
     }
 
     render() {
         let match = this.props.match;
         return (
-            <Router>
-                <article className="index-container">
-                    <header>
+            <article id="app-container">
+                <header>
+                    <h2>头部数据</h2>
+                    <Link to='/login'>前往登陆</Link>
+                </header>
 
-                    </header>
+                <section>
+                    <Router>
+                        <Route exact path="/tab"
+                               render={(props) => <LazyRoute {...props}
+                                component={import('./components/tabcontainer/Container')}/>}>
+                        </Route>
+                    </Router>
+                </section>
 
-                    <footer>
-
-                    </footer>
-                </article>
-            </Router>
+                <footer>
+                    <h2>底部信息</h2>
+                </footer>
+            </article>
         )
     }
 }

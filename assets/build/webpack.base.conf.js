@@ -24,16 +24,12 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(js|jsx)$/,
-            //     loader: 'eslint-loader',
-            //     enforce: "pre",
-            //     options: {
-            //         formatter: require('eslint-friendly-formatter')
-            //     }
-            // },
             {
-                test:/\.(js|jsx)$/,
+                test: /\.(scss|css)$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 include: [resolve('src'), resolve('test')],
                 options: {
@@ -50,14 +46,10 @@ module.exports = {
                 }
             },
             {
-                test:/\.(scss|css)$/,
-                loader: 'sass-loader',
-            },
-            {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
-                    limit: 10000,
+                    limit: 100,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
                 }
             },
@@ -65,7 +57,7 @@ module.exports = {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
-                    limit: 10000,
+                    limit: 100,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
             }

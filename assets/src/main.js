@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import appState from "./mobx/userState";
 import {Provider, observer} from 'mobx-react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-
+import LazyRoute from 'lazy-route'
 // import DevTools from 'mobx-react-devtools'
 @observer
 export default class App extends Component {
@@ -17,8 +17,13 @@ export default class App extends Component {
         return (
             <Router>
                 <Provider store={this.store}>
-                    <Route path="/" component={require("./App").default}></Route>
-                    <Route path="/login" component={require("./App").default}></Route>
+                    <div>
+                        <Route exact path="/" component={require("./App").default}></Route>
+                        <Route exact path="/login"
+                               render={(props) => <LazyRoute {...props}
+                                component={import('./views/loginRegister/Login')}/>}>
+                        </Route>
+                    </div>
                 </Provider>
             </Router>
         )
