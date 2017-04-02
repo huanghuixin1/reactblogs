@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default class Tab1 extends React.Component {
     constructor(props) {
@@ -11,6 +11,6 @@ export default class Tab1 extends React.Component {
             <article>
                 <h1>这里是tab22221</h1>
             </article>
-        )
+        );
     }
 }

@@ -24,9 +24,27 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.(js|jsx)$/,
+            //     loader: 'eslint-loader',
+            //     enforce: "pre",
+            //     options: {
+            //         formatter: require('eslint-friendly-formatter')
+            //     }
+            // },
             {
                 test: /\.(scss|css)$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: ["style-loader", "css-loader", {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: function () {
+                            return [
+                                require('precss'),
+                                require('autoprefixer')
+                            ]
+                        }
+                    }
+                }, "sass-loader"]
             },
             {
                 test: /\.(js|jsx)$/,

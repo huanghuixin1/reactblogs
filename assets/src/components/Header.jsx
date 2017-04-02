@@ -1,6 +1,6 @@
 import React from 'react'
-
-export default class Test extends React.Component {
+import "./header.scss"
+export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -8,9 +8,9 @@ export default class Test extends React.Component {
 
     render() {
         return (
-            <article>
-                这只是一个测试的控件
-            </article>
+            <header id="components-index-header">
+
+            </header>
         )
     }
 }

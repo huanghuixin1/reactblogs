@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
 import First from "./Tab1";
 import Second from "./Tab2";
 
@@ -23,6 +23,6 @@ export default class Container extends React.Component {
                     <Route path={`/tab/tab1`} component={Second}/>
                 </div>
             </Router>
-        )
+        );
     }
 }

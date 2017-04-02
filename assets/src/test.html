@@ -16,22 +16,26 @@
 </html>
 
 <script>
-    function delayFn(num) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(111 + num);
-            }, 1500);
-        })
+    @warpPerson
+    class Person {
+        constructor() {
+            this.age = 1
+        }
     }
 
-    let final = async function () {
-        let a = await delayFn(10);
-        let b = await delayFn(20);
+    function warpPerson(P) {
+        class Man extends P {
+            constructor() {
+                super()
+            }
 
-        return a + b
+            getAge() {
+                console.info(this.age);
+            }
+        }
+
+        return Man
     }
 
-    final().then((ret) => {
-        alert(ret)
-    })
+    console.info(Person);
 </script>

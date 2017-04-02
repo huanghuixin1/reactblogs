@@ -1,13 +1,13 @@
 import React from 'react'
-import userState from "../mobx/userState";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Test from "./Test";
+import {observer, inject} from "mobx-react"
+// import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
+@inject("store") @observer
 class Inputs extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {userState}
+        this.state = {userState: this.props.store.userState};
         this.changeUserInfo = this.changeUserInfo.bind(this)
     }
 
@@ -17,13 +17,9 @@ class Inputs extends React.Component {
     }
 
     render() {
-        let match = this.props.match
-        console.info(this.props, this.state);
         return <div>
             <input type="text" ref="(input)=>{txtName = input; }"/>
             <button onClick={this.changeUserInfo}>点击修改</button>
-
-            <Link to={`${match.url}/test`}>跳转到test</Link>
         </div>;
     }
 }

@@ -1,16 +1,17 @@
 /**
  * Created by hhx2 on 2017/4/1.
  */
-import React, {Component} from 'react'
+import  React from 'react'
 import {inject, observer} from 'mobx-react'
 // import {Redirect} from 'react-router-dom'
 
 export default function Auth(Component) {
-    @inject(['store']) @observer
+    @observer @inject(['store'])
     class AuthComponent extends Component {
         constructor(props) {
             super(props)
             this.store = this.props.store
+            console.info(this.store);
         }
 
         componentDidMount() {
@@ -24,7 +25,6 @@ export default function Auth(Component) {
                 </div>
             )
         }
-
     }
     return AuthComponent
 }

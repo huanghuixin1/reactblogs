@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import {Provider, observer} from 'mobx-react'
+import {Provider, observer, inject} from 'mobx-react'
 import LazyRoute from 'lazy-route'
 import {Match} from 'react-router'
 import './app.scss'
 
 // import DevTools from 'mobx-react-devtools'
-@observer
+@inject("store") @observer
 export default class App extends Component {
     constructor(props) {
         super(props)
 
         this.store = this.props.store
+        console.info(this.props);
     }
 
     render() {
@@ -27,7 +28,7 @@ export default class App extends Component {
                     <Router>
                         <Route exact path="/tab"
                                render={(props) => <LazyRoute {...props}
-                                component={import('./components/tabcontainer/Container')}/>}>
+                                                             component={import('./components/tabcontainer/Container')}/>}>
                         </Route>
                     </Router>
                 </section>

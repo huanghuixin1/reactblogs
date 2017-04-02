@@ -1,7 +1,7 @@
 /**
  * Created by hhx2 on 2017/3/5.
  */
-import {observable, computed} from 'mobx';
+import {observable, computed, action} from 'mobx';
 import {observer} from 'mobx-react';
 class UserInfoStore {
     @observable userInfo = {id: 1, name: 'hhx'}
